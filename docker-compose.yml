@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+     - "5432:5432"
+    networks:
+      - testnetwork
+    
+  app:
+    depends_on:
+      - db
+    build: .
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "8000:8000"
+    links:
+      - db:db
+    networks:
+      - testnetwork
+
+networks:
+  testnetwork:
+    driver: bridge
