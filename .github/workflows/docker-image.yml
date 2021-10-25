@@ -15,6 +15,7 @@ jobs:
       - name: Perform Unit Testing
         run: |
           pip3 install -r requirements.txt
+          export PYTHONPATH="${PYTHONPATH}:./"
           pytest
   build:
 
