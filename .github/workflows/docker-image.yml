@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Perform Unit Testing
-      - run: |
+        run: |
           pip3 install -r requirements.txt
           pytest
   build:
