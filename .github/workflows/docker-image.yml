@@ -26,6 +26,7 @@ jobs:
     - name: Build the Docker image
       run: |
         docker build . --file Dockerfile --tag poke_pipeline_github
-        docker login pokeio.azurecr.io -u='${DOCKER_USERNAME}' -p='${DOCKER_PASSWORD}'
+        echo '${DOCKER_USERNAME}'
+        docker login pokeio.azurecr.io -u='${DOCKER_USERNAME2}' -p='${DOCKER_PASSWORD}'
         docker tag poke_pipeline_github pokeio.azurecr.io/poke_pipeline_github
         docker push pokeio.azurecr.io/poke_pipeline_github
